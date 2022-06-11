@@ -1,12 +1,54 @@
 
+Recap:
+
+  OOPS ---> Object Oriented Programming
+
+    Object --> Real Physical Entity 
+      In terms, Programmatically Coded entity/Object
+
+      contructor function
+      blueprint
+        function with this key word
+        class
+      
+      creation of object --> new keyword
+      eg: car = new Vehicle('Car', 'Color');
+
+    Inheritance:
+      using extends we can extend a child from parent
+      eg:
+        class Bike extends Vechile {
+          constructor(type, color, speed) {
+            super(type, color); // Calling the constructor of the Parent
+            this.speed = speed;
+          }
+        }
+
+  Map, Filter
 
 
 Topics:
 
-  OOPS, class, this
+  find ---> Returns the first element which satisfies the matching condition
+  
+  Reduce -->
+  
+  github account creation
 
-  Object Oriented Programming
+  git ---> 
+
+    Source Control Management Tool
+
+                            Remote  ( github, bitbucket, gitlab ) https://github.com/sanjay/my-code --> share, collabrate
+
+                              |
+                            
+                            Local   ( Your laptop/desktop )
 
 
 
-  MRF --> Array Methods MAP, FILTER
+
+    basic cmds
+    installation and instructions
+
+  extension check list

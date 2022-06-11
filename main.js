@@ -1,205 +1,220 @@
-// const vechileObj = {
-//   type: "car",
-//   color: "red"
-// }
+// Map
 
-// console.log(vechileObj);
+// const array1 = [1, 4, 9, 16];
 
+// pass a function to map
+//const map1 = array1.map(x => x * 2);
 
+//console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+//                       v  i  arr
+// const operateOnArr = (x, y, z) => { 
+//   console.log(y);
+//   console.log(z);
+//   return x * 2 
+// };
 
-// function VehicleFunc(type, color) {
-//   return {
-//     type,
-//     color
-//   };
-// }
+// const resArr = array1.map(operateOnArr);
 
-// const CarOne = VehicleFunc("car", "red");
+// const resArr = array1.map((x, index) => { 
+//   console.log(index);
+//   return x * 2 
+// });
 
-// console.log(CarOne);
+// const resArr = array1.map(function(x) { return x * 2 });
 
+// console.log(resArr);
 
-// // Here we are creating blue print for Vehicle
-function Vechile(type, color) {
-  this.type = type; // this keyword helps us constructing
-  this.color = color;
+// const arr = [{ name: 'Sanjay', maths: 57 }, {name: 'Saravanan', maths: 32}];
 
-  // State / Action
-  const driving = () => {
-    console.log(`${this.color} color ${this.type} is driving`)
-  }
+// const engArr = [56, 76];
 
-  this.driving = driving;
+// // Output: [{ name: 'Sanjay', maths: 85, eng: 56 }, {name: 'Saravanan', maths: 32, eng: 76}]
 
-}
+// // 
+// const resultArr = arr.map((x, i) => {
+//   // console.log(x);
+//   const tempObj = {...x, eng: engArr[i]};
+//   return tempObj;
+// });
 
-var CarTwo = new Vechile("car", "red"); // new keyword indicates instantiation (creating new object)
- 
-// console.log(CarTwo);
-// console.log(typeof CarTwo);
+// console.log(resultArr); // [{ name: 'Sanjay', maths: 85, eng: 56 }, {name: 'Saravanan', maths: 32, eng: 76}]
 
-// const VechileDef = (type, color) => {
+// Filter eng & maths mark less than 60
 
-//   // In arrow function **this** point to its parent
-//   this.type = type;
-//   this.color = color;
-
-//   // return {
-//   //   type,
-//   //   color
-//   // }
-// }
-
-// // Arrow Function will not be constructable
-// // const NewCar = new VechileDef("car", "Yellow");
+// Output: [{ name: 'Sanjay', maths: 85, eng: 56 }]
 
 
+// . operator
+// const filterArr = resultArr.filter(x=>x.eng < 60);
 
-// const SampleObj = {
-//   name: "Sanjay",
-//   role: 'developer',
-//   displayInfo: function(){
-//     console.log(this);
-//   }
-// }
+// const filterArr = resultArr.filter(x=>{
+//   return x.eng < 60;
+// });
 
-// const TempObj = SampleObj;
+// const filterArr = resultArr.filter(({eng, maths})  => eng < 60 && maths < 60); 
+
+// // const filterArr = resultArr.filter(({eng}, index, arr)  => eng < 60); 
+
+// console.log(filterArr);
+
+// const numArr = [9,8,7,6,5,4];
+
+// // Odd Numbers
+// // Output: [9,7,5]
 
 
-// TempObj.displayInfo();
+// const oddArr = numArr.filter((x) => x%2 );
 
-// console.log(SampleObj);
+// console.log(oddArr);
 
-// Class Definition 
-class Vechile {
+// // Even Numbers
+// // Output: [8,6,4]
 
-  constructor(type, color) {
-    this.type = type;
-    this.color = color;
-  }
+// const evenArr = numArr.filter((x) => !(x % 2));
 
-  // function keyword inside class
-  driving () {
-    console.log(this);
-  }
+// console.log(evenArr);
 
-  // Setter ---> Sets the values of the Object
-  setValues (type, color) {
-    this.type = type;
-    this.color = color;
-  }
+// const arr = [{ name: 'Sanjay', maths: 57, id: 1 }, { name: 'Saravanan', maths: 32, id: 2 }, { name: 'Sam', maths: 32, id: 2 }];
 
-  // Getter ---> Returns the Values of the Object
-  getValues (){
-    return {
-      ...this
-    }
-  }
-  
-}
 
-const Car = new Vechile("car", "red");// new means instantiation 
+// // Object with id 2
+// // Output: { name: 'Saravanan', maths: 32, id: 2 }
 
-// console.log(Car);
+// // find
+// const resObj = arr.find(x => x.id === 2);
 
-// // Inheritance
-class Bike extends Vechile {
-  
-  constructor(type, color, speed) {
-    super(type, color); // Calling the constructor of the Parent
-    this.speed = speed;
-  }
+// console.log(resObj);
+
+// Return Types
+// Foreach --> undefined
+// map --> new array out each returns of iteration
+// Filter --> new array with elements which meets the contions
+// find --> element that meets the condition 
+
+// Reduce --> depends on the callback/reducer function's return type
+
+function name() {
 
 }
 
-// const R15 = new Bike("R15", "Blue", 100);
+// Most used function
+const name = (args) => {
 
-// console.log(R15);
-// R15.driving()
+};
 
-// Array Methods
+(args) => {}
 
+// Reduce
+const arr = [50,40,30,20,10];
+
+// Output sum of each element of the array
+const resSum = arr.reduce((prevVal, currVal, index, arr) => {
+  console.log(index);
+  console.log("PrevVal", prevVal);
+  console.log("CurrVal", currVal);
+  console.log("##########################################");
+  return prevVal + currVal;
+}); 
 /**
- * Array methods we have already seen
- * Foreach
- * push
+ * 1st iteration index = 1, prevVal = 50, currVal = 40 ---> next prevVal = 90
+ * 2st iteration index = 2, prevVal = 90, currVal = 30 ---> next prevVal = 120
+ * 3rd iteration index = 3, prevVal = 120, currVal = 20 ---> next prevVal = 140
+ * 4th iteration index = 4, prevVal = 140, currVal = 10 ---> return value = 150
  */
 
-// Foreach
-
-const arr1 = [1,2,3,4,5];
-
-// const x = 2;
-// Iterate and print square element in the array
-// Return type of for each --> undefined
-// Passing an external parameter ---> 
-// const tempVar = arr1.forEach(function(ele, i, arr) {
-//   console.log("Multiply", 2 * ele);
-//   console.log("Index", i);
-//   console.log("Complete Array", arr)
-//   console.log(this);
-//   console.log("###########################################################");
-// }, 30);
-
-// console.log(tempVar);
-  
+console.log("Returned Result From Reduce func", resSum);// sum each elements
 
 
-console.log(arr1)
+// Output difference of each element of the array
+const resDiff = arr.reduce((prevVal, currVal, index, arr) => prevVal - currVal);
 
-// Map 
-// Return Type: Array of returned values of each Iteration
-// const mapArr = arr1.map(function(ele, i, arr) {
-//   return ele * this;
-// }, 30)
-// // const mapArr = arr1.map((ele, i, arr) => ele * 30)
-
-// /**
-//  * 1 ==> [30]
-//  * 2 ==> [30, 60]
-//  * 3 ==> [30, 60, 90]
-//  * ...
-//  */
-// console.log(mapArr);
-
-
-// Filter
-// callback should return true or false on each iteration
-// based on this return value filtered arr is returned from filter
-//
-const arr2 = [1,2,3,4,5,6];
-const resultArr = [];
-// Filter only the Odd number of arr2
-arr2.forEach((ele) => {
-  if(ele % 2) resultArr.push(ele);
-})
-
-console.log("Method 1",resultArr);
-// Odd
-console.log("Method 2", arr2.filter((ele) => ele % 2 ));
-
-// Odd
-// console.log("Method 2", arr2.filter((ele) => !(ele % 2) ));
-
-const objArr = [
-  { id: 1, stuName: "Sanjay", std: 10 },
-  { id: 2, stuName: "Saravanan", std: 12 },
-  { id: 3, stuName: "Sam", std: 8 },
-  { id: 4, stuName: "Sammy", std: 6 },
-];
-
-// Filtered Output
-// all student above 8 std ---> 
 /**
- * [
- *  { id: 1, stuName: "Sanjay", std: 10 },
- *  { id: 2, stuName: "Saravanan", std: 12 }
- * ]
- * 
+ * 1st iteration index = 1, prevVal = 50, currVal = 40 ---> next prevVal = 50 - 40 --> 10
+ * 2st iteration index = 2, prevVal = 10, currVal = 30 ---> next prevVal = 10 - 30 --> -20
+ * 3rd iteration index = 3, prevVal = -20, currVal = 20 ---> next prevVal = -20 -20 --> -40
+ * 4th iteration index = 4, prevVal = -40, currVal = 10 ---> return value = -40 -10 --> -50
  */
-// [].forEach
-// [].map
-// [].filter
 
-const above8Arr = objArr.filter(({ std }, i) => std > 8);
-console.log(above8Arr)
+console.log("Result Difference", resDiff);
+
+
+const resSumV2 = arr.reduce((prevVal, currVal, index, arr) => {
+  console.log(index);
+  console.log("PrevVal", prevVal);
+  console.log("CurrVal", currVal);
+  console.log("##########################################");
+  return prevVal + currVal;
+}, 100); 
+/**
+ * 1st iteration index = 0, prevVal = 100, currVal = 50 ---> next prevVal 100 + 50 = 150
+ * 2st iteration index = 1, prevVal = 150, currVal = 40 ---> next prevVal 150 + 40 = 190
+ * 3rd iteration index = 2, prevVal = 190, currVal = 30 ---> next prevVal 190 + 30 = 220
+ * 4th iteration index = 3, prevVal = 220, currVal = 20 ---> next prevVal 220 + 20 = 240
+ * ...
+ */
+
+
+console.log("Initial Value Sum", resSumV2);
+
+// Output difference of each element of the array with initial value
+const resDiffV2 = arr.reduce((prevVal, currVal, index, arr) => prevVal - currVal, 50);
+
+/**
+ * 1st iteration index = 0, prevVal = 50, currVal = 50 ---> next prevVal 50 - 50 = 0
+ * 2st iteration index = 1, prevVal = 0, currVal = 40 ---> next prevVal 0 - 40 = -40
+ * 3rd iteration index = 2, prevVal = -40, currVal = 30 ---> next prevVal -40 - 30 = -70
+ * 4th iteration index = 3, prevVal = -70, currVal = 20 ---> next prevVal -70 - 20 = -90
+ * 5th iteration index = 3, prevVal = -90, currVal = 10 ---> next prevVal -90 - 10 = -100
+ */
+
+console.log("Result Difference", resDiffV2);
+
+
+const valArr = ["Sanjay", "developer", "dd-mm-yy", "python"]
+const keyArr = ["name", "role", "dob", "skill"]
+
+// Output: {name: 'Sanjay', role: 'developer', dob: 'dd-mm-yy', skill: 'python'}
+
+// Reduce
+// Without Initial value
+const resultObj = valArr.reduce((prevVal, currVal, index) => {
+  if(index === 1) {
+    const newObj = {};
+    newObj[keyArr[0]] = prevVal;
+    newObj[keyArr[1]] = currVal;
+    return newObj;
+  }
+
+  prevVal[keyArr[index]] = currVal;
+
+  return prevVal;
+});
+
+console.log("Result Obj", resultObj);
+
+/**
+ * 1st index = 1
+ */
+
+
+// with initial value
+const resultObjV2 = valArr.reduce((prevVal, currVal, index) => {
+
+  prevVal[keyArr[index]] = currVal;
+
+  return prevVal;
+}, {});
+
+/**
+ * 1st index = 0, prevVal = {}, currVal = 'Sanjay' ==> prevVal[keyArr[0]] -> prevVal["name"] = "Sanjay";
+ * 2nd index = 1, prevVal = { name: "Sanjay" }, currVal = 'developer' ==> prevVal[keyArr[1]] -> prevVal["role"] = "developer";
+ * 3rd index = 2, prevVal = { name: "Sanjay", role: "developer" }, currVal = 'developer' ==> prevVal[keyArr[2]] -> prevVal["dob"] = "dd-mm-yy";
+ * ...
+ */
+
+
+console.log("Result Obj V2 ", resultObjV2);
+
+
+
